@@ -229,7 +229,7 @@
                                     <div class="col-xl-12">
                                         <label class="form-label">Télephone</label>
                                         <div class="input-group">
-                                            <input type="tel" id="" class="form-control" value="Télephone"
+                                            <input type="tel" id="" class="form-control" 
                                                 name="telephone">
 
                                         </div>
