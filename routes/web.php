@@ -51,6 +51,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/listdocteur', [AdminDashboardController::class, 'store'])
         ->name('admin.store_docteur');
 
+        Route::get('/supprimer{id}', [AdminDashboardController::class, 'supprimerdoc'])
+        ->name('admin.supprimer.docteur');
+
     });
 
     Route::prefix('doctor')->group(function () {

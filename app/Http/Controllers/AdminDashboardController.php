@@ -61,4 +61,22 @@ class AdminDashboardController extends Controller
         return redirect()->route('admin.listdocteur')->with('success', 'Utilisateur créé avec succès.');
     }
 
+    public function supprimerdoc($id)
+    {
+        // Recherche du docteur par son ID
+        $docteur = User::find($id);
+
+        // Vérification si le docteur existe
+        if (!$docteur) {
+            // Redirection avec un message d'erreur si le docteur n'est pas trouvé
+            return redirect()->back()->with('error', 'Docteur non trouvé.');
+        }
+
+        // Suppression du docteur
+        $docteur->delete();
+
+        // Redirection avec un message de succès
+        return redirect()->back()->with('success', 'Docteur supprimé avec succès.');
+    }
+
 }

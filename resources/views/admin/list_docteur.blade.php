@@ -5,6 +5,8 @@
 
 @section('content')
 
+
+
     <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -28,92 +30,9 @@
                 </div>
             </div>
             <div class="row">
-                {{-- <div class="col-xl-12">
-                    <div class="table-responsive">
-                        <table id="example5"
-                            class="table shadow-hover doctor-list table-bordered mb-4 dataTablesCard fs-14">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div class="checkbox align-self-center">
-                                            <div class="form-check custom-checkbox ">
-                                                <input type="checkbox" class="form-check-input" id="checkAll"
-                                                    required="">
-                                                <label class="form-check-label" for="checkAll"></label>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Email</th>
-                                    <th>Pseudo</th>
-                                    <th>Contact</th>
-                                    <th>Specialité</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($listdocteurs as $listdocteurs)
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="checkbox text-end align-self-center">
-                                                    <div class="form-check custom-checkbox ">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="customCheckBox{{ $listdocteurs->id }}" required="">
-                                                        <label class="form-check-label"
-                                                            for="customCheckBox{{ $listdocteurs->id }}"></label>
-                                                    </div>
-                                                </div>
-                                                <img alt="" src="{{ asset('images/doctors/9.jpg') }}" height="43"
-                                                    width="43" class="rounded-circle ms-4">
-                                            </div>
-                                        </td>
-                                        <td>#P-{{ $listdocteurs->id }}</td>
 
-                                        <td>{{ $listdocteurs->name }}</td>
-                                        <td>{{ $listdocteurs->prenom }}</td>
-                                        <td>{{ $listdocteurs->email }}</td>
-                                        <td>{{ $listdocteurs->pseudo }}</td>
-                                        <td><span class="font-w500">{{ $listdocteurs->telephone }}</span></td>
-                                        <td>{{ $listdocteurs->specialist }}</td>
+                <x-session />
 
-
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <span class="text-danger font-w600">{{ $listdocteurs->status }}</span>
-                                                <div class="dropdown ms-auto c-pointer text-end">
-                                                    <div class="btn-link" data-bs-toggle="dropdown">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11Z"
-                                                                stroke="#3E4954" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" />
-                                                            <path
-                                                                d="M12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18Z"
-                                                                stroke="#3E4954" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" />
-                                                            <path
-                                                                d="M12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4Z"
-                                                                stroke="#3E4954" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="javascript:void(0);">View Detail</a>
-                                                        <a class="dropdown-item" href="javascript:void(0);">Edit</a>
-                                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div> --}}
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -136,29 +55,33 @@
                                 <tbody>
 
                                     @foreach ($listdocteurs as $listdocteurs)
-                                    <tr>
+                                        <tr>
 
-                                        <td>#P-{{ $listdocteurs->id }}</td>
+                                            <td>#P-{{ $listdocteurs->id }}</td>
 
-                                        <td>{{ $listdocteurs->name }}</td>
-                                        <td>{{ $listdocteurs->prenom }}</td>
-                                        <td>{{ $listdocteurs->email }}</td>
-                                        <td>{{ $listdocteurs->pseudo }}</td>
-                                        <td><span class="font-w500">{{ $listdocteurs->telephone }}</span></td>
-                                        <td>{{ $listdocteurs->specialist }}</td>
-                                        <td>
-                                            <div class="dropdown ms-auto text-right">
-														<div class="btn-link" data-bs-toggle="dropdown">
-															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-														</div>
-														<div class="dropdown-menu dropdown-menu-end">
-															<a class="dropdown-item bg-success text-light" href="#">Modifier </a>
-															<a class="dropdown-item bg-danger text-light" href="javascript:void(0);">Supprimer</a>
+                                            <td>{{ $listdocteurs->name }}</td>
+                                            <td>{{ $listdocteurs->prenom }}</td>
+                                            <td>{{ $listdocteurs->email }}</td>
+                                            <td>{{ $listdocteurs->pseudo }}</td>
+                                            <td><span class="font-w500">{{ $listdocteurs->telephone }}</span></td>
+                                            <td>{{ $listdocteurs->specialite['nom'] }}</td>
+                                            <td>
+                                                <div class="dropdown ms-auto text-right">
+                                                    <!-- Bouton Modifier -->
+                                                    <a class="btn-link" href="#"
+                                                        onclick="modifierDocteur({{ $listdocteurs->id }})">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
 
-														</div>
-													</div>
-                                        </td>
-                                    </tr>
+                                                    <!-- Bouton Supprimer -->
+                                                    <a class="btn-link"
+                                                        href="{{ route( 'admin.supprimer.docteur' , ['id' => $listdocteurs->id]) }}">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -229,8 +152,7 @@
                                     <div class="col-xl-12">
                                         <label class="form-label">Télephone</label>
                                         <div class="input-group">
-                                            <input type="tel" id="" class="form-control" 
-                                                name="telephone">
+                                            <input type="tel" id="" class="form-control" name="telephone">
 
                                         </div>
                                     </div>
